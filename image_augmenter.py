@@ -1,9 +1,19 @@
+import matplotlib.pyplot
 import tensorflow
 import imgaug
 import math
 
 # Global Variables
 augmentation_percentage = 30
+
+
+def show_images(img_b, img_a, rows):
+    for i in range(rows * 2):
+        matplotlib.pyplot.subplot((rows * 100) + 20 + i * 2 + 1)
+        matplotlib.pyplot.imshow(img_b[i], cmap=matplotlib.pyplot.get_cmap())
+        matplotlib.pyplot.subplot((rows * 100) + 20 + i * 2 + 1 + 1)
+        matplotlib.pyplot.imshow(img_a[i], cmap=matplotlib.pyplot.get_cmap())
+
 
 # Import and manipulate dataset
 (x_train, y_train), (x_test, y_test) = tensorflow.keras.datasets.cifar10.load_data()
